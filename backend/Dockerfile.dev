@@ -1,0 +1,15 @@
+FROM node:lts-alpine3.13 as DEVELOPMENT
+
+WORKDIR /backend
+
+COPY package.json .
+
+RUN npm i -g nodemon
+
+RUN npm i
+
+COPY . .
+
+EXPOSE 3030
+
+CMD [ "nodemon", "server.js" ]
